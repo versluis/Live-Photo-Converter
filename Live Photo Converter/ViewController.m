@@ -14,6 +14,8 @@
 
 @interface ViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, PHLivePhotoViewDelegate>
 
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *workingIndicator;
+
 @end
 
 @implementation ViewController
@@ -45,9 +47,43 @@
 }
 
 - (IBAction)sharePhoto:(id)sender {
+
+    // if we don't have a photo view, present warning and return
+    if (![self.view viewWithTag:87]) {
+        [self cannotShareLivePhotoWarning];
+        return;
+    }
+    
+    // grab a reference to the Photo View and Live Photo
+    PHLivePhotoView *photoView = (PHLivePhotoView *)[self.view viewWithTag:87];
+    PHLivePhoto *livePhoto = photoView.livePhoto;
+    
+    // build an activity view controller
+    UIActivityViewController *activityView = [[UIActivityViewController alloc]initWithActivityItems:@[livePhoto] applicationActivities:nil];
+    [self presentViewController:activityView animated:YES completion:^{
+        // let's see if we need to do anything here
+        NSLog(@"Activity View Controller has finidhed.");
+    }];
+}
+
+- (void)cannotShareLivePhotoWarning {
+    
+    // create an alert view
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"No Live Photo to share" message:@"There's nothing showing in the Live Photo View, so you can't share anything. Convert a video first and try again." preferredStyle:UIAlertControllerStyleAlert];
+    
+    // add a single action
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"Thanks ;-)" style:UIAlertActionStyleDefault handler:nil];
+    [alert addAction:action];
+    
+    // and display it
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (PHLivePhoto *)convertLivePhotoFromVideoURL:(NSURL *)videoURL photoURL:(NSURL *)photoURL {
+    
+    // courtesy of Genady Okrain:
+    // https://realm.io/news/hacking-live-photos-iphone-6s/
+    // https://github.com/genadyo/LivePhotoDemo/
     
     CGSize targetSize = CGSizeZero;
     PHImageContentMode contentMode = PHImageContentModeDefault;
@@ -113,6 +149,17 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
+- (NSURL*)grabFileURL:(NSString *)fileName {
+    
+    // find Documents directory
+    NSURL *documentsURL = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+    
+    // append a file name to it
+    documentsURL = [documentsURL URLByAppendingPathComponent:fileName];
+    
+    return documentsURL;
+}
+
 #pragma mark - Image Picker Delegate
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
@@ -135,31 +182,46 @@
     // grab the video
     NSURL *videoURL = [info objectForKey:UIImagePickerControllerMediaURL];
     
-    // and a URL for a still image (we'll use the first frame)
-    // UIImage *image = [self thumbnailForVideoURL:videoURL atTime:0];
-    
-    // or:
+    // grab a still image from the video (we'll use the first frame)
     AVURLAsset *asset = [[AVURLAsset alloc]initWithURL:videoURL options:nil];
     AVAssetImageGenerator *generator = [AVAssetImageGenerator assetImageGeneratorWithAsset:asset];
     UIImage *image = [UIImage imageWithCGImage:[generator copyCGImageAtTime:CMTimeMake(0, 1) actualTime:nil error:nil]];
     
-    // create an image view
-    UIImageView *imageView = [[UIImageView alloc]initWithFrame:self.view.bounds];
-    imageView.image = image;
-    imageView.contentMode = UIViewContentModeScaleAspectFit;
-    imageView.tag = 87;
-    [self.view addSubview:imageView];
+    // or use
+    // UIImage *image = [self thumbnailForVideoURL:videoURL atTime:0];
+    
+    // turn UIImage into an NSURL (not needed)
+    UIImageWriteToSavedPhotosAlbum(image, self, nil, nil);
+    
+    // we need a URL for the image, so we'll save it to the Documents Directory
+    NSURL *photoURL = [self grabFileURL:@"tempPhoto"];
+    NSData *data = UIImagePNGRepresentation(image);
+    [data writeToURL:photoURL atomically:YES];
+    
+    // now grab the Live Photo (takes some time, bring up spinning wheel)
+    [self.workingIndicator startAnimating];
+    PHLivePhoto *livePhoto = [self convertLivePhotoFromVideoURL:videoURL photoURL:photoURL];
     
     
-//    // create a Live Photo View
-//    PHLivePhotoView *photoView = [[PHLivePhotoView alloc]initWithFrame:self.view.bounds];
-//    photoView.livePhoto = [info objectForKey:UIImagePickerControllerLivePhoto];
-//    photoView.contentMode = UIViewContentModeScaleAspectFit;
-//    photoView.tag = 87;
-//    
-//    // bring up the Live Photo View
-//    [self.view addSubview:photoView];
-//    [self.view sendSubviewToBack:photoView];
+//    // create an image view
+//    UIImageView *imageView = [[UIImageView alloc]initWithFrame:self.view.bounds];
+//    imageView.image = image;
+//    imageView.contentMode = UIViewContentModeScaleAspectFit;
+//    imageView.tag = 87;
+//    [self.view addSubview:imageView];
+    
+    
+    // create a Live Photo View
+    PHLivePhotoView *photoView = [[PHLivePhotoView alloc]initWithFrame:self.view.bounds];
+    // photoView.livePhoto = [info objectForKey:UIImagePickerControllerLivePhoto];
+    photoView.livePhoto = livePhoto;
+    photoView.contentMode = UIViewContentModeScaleAspectFit;
+    photoView.tag = 87;
+    
+    // bring up the Live Photo View
+    [self.view addSubview:photoView];
+    [self.view sendSubviewToBack:photoView];
+    [self.workingIndicator stopAnimating];
 }
 
 #pragma mark - Live Photo VIew Delegate

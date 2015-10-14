@@ -22,16 +22,16 @@
                                 <items>
                                     <barButtonItem title="???" id="CjJ-QJ-HDQ"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="fsA-U4-4MX"/>
-                                    <barButtonItem title="Convert to Live Photo" id="C5U-y2-qRk">
-                                        <connections>
-                                            <action selector="convertLivePhoto:" destination="BYZ-38-t0r" id="tzE-Do-CVF"/>
-                                        </connections>
-                                    </barButtonItem>
+                                    <barButtonItem title="Convert to Live Photo" id="C5U-y2-qRk"/>
                                 </items>
                             </toolbar>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="IhE-iO-r4V">
+                                <rect key="frame" x="282" y="281" width="37" height="37"/>
+                                <animations/>
+                            </activityIndicatorView>
                         </subviews>
                         <animations/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="QvI-57-rnP" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="Uqp-2r-UqW"/>
                             <constraint firstItem="QvI-57-rnP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bXH-g0-wsS"/>
@@ -50,6 +50,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="workingIndicator" destination="IhE-iO-r4V" id="OSX-9t-ft3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
