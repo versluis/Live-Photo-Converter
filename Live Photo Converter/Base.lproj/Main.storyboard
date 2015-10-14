@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9052" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="9Yg-Pu-yQ8">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9040"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Live Photo Converter-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +15,64 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QvI-57-rnP">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <animations/>
+                                <items>
+                                    <barButtonItem title="???" id="CjJ-QJ-HDQ"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="fsA-U4-4MX"/>
+                                    <barButtonItem title="Convert to Live Photo" id="C5U-y2-qRk">
+                                        <connections>
+                                            <action selector="convertLivePhoto:" destination="BYZ-38-t0r" id="tzE-Do-CVF"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="QvI-57-rnP" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="Uqp-2r-UqW"/>
+                            <constraint firstItem="QvI-57-rnP" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="bXH-g0-wsS"/>
+                            <constraint firstAttribute="trailing" secondItem="QvI-57-rnP" secondAttribute="trailing" id="sPQ-rD-aSZ"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Live Photo Converter" id="Tfv-CQ-MGw">
+                        <barButtonItem key="leftBarButtonItem" systemItem="action" id="8je-4o-7p8">
+                            <connections>
+                                <action selector="sharePhoto:" destination="BYZ-38-t0r" id="gpN-Km-Ocb"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="camera" id="7wf-3c-YAw">
+                            <connections>
+                                <action selector="grabVideo:" destination="BYZ-38-t0r" id="8TB-Oj-vk7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1110" y="429"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="FzM-WB-rRB">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="9Yg-Pu-yQ8" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="63G-VE-eJM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="VuX-1B-XnN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pyf-j2-pVI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="338" y="429"/>
         </scene>
     </scenes>
 </document>
