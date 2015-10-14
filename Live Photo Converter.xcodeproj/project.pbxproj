@@ -1,0 +1,538 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D265A3B71BCE734B00A0469B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D265A3B61BCE734B00A0469B /* main.m */; };
+		D265A3BA1BCE734B00A0469B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D265A3B91BCE734B00A0469B /* AppDelegate.m */; };
+		D265A3BD1BCE734B00A0469B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D265A3BC1BCE734B00A0469B /* ViewController.m */; };
+		D265A3C01BCE734B00A0469B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D265A3BE1BCE734B00A0469B /* Main.storyboard */; };
+		D265A3C31BCE734B00A0469B /* Live_Photo_Converter.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D265A3C11BCE734B00A0469B /* Live_Photo_Converter.xcdatamodeld */; };
+		D265A3C51BCE734B00A0469B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D265A3C41BCE734B00A0469B /* Assets.xcassets */; };
+		D265A3C81BCE734B00A0469B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D265A3C61BCE734B00A0469B /* LaunchScreen.storyboard */; };
+		D265A3D31BCE734B00A0469B /* Live_Photo_ConverterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D265A3D21BCE734B00A0469B /* Live_Photo_ConverterTests.m */; };
+		D265A3DE1BCE734B00A0469B /* Live_Photo_ConverterUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = D265A3DD1BCE734B00A0469B /* Live_Photo_ConverterUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D265A3CF1BCE734B00A0469B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D265A3AA1BCE734B00A0469B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D265A3B11BCE734B00A0469B;
+			remoteInfo = "Live Photo Converter";
+		};
+		D265A3DA1BCE734B00A0469B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D265A3AA1BCE734B00A0469B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D265A3B11BCE734B00A0469B;
+			remoteInfo = "Live Photo Converter";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D265A3B21BCE734B00A0469B /* Live Photo Converter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Live Photo Converter.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D265A3B61BCE734B00A0469B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D265A3B81BCE734B00A0469B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D265A3B91BCE734B00A0469B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D265A3BB1BCE734B00A0469B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		D265A3BC1BCE734B00A0469B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		D265A3BF1BCE734B00A0469B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D265A3C21BCE734B00A0469B /* Live_Photo_Converter.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Live_Photo_Converter.xcdatamodel; sourceTree = "<group>"; };
+		D265A3C41BCE734B00A0469B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D265A3C71BCE734B00A0469B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D265A3C91BCE734B00A0469B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D265A3CE1BCE734B00A0469B /* Live Photo ConverterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Live Photo ConverterTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D265A3D21BCE734B00A0469B /* Live_Photo_ConverterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Live_Photo_ConverterTests.m; sourceTree = "<group>"; };
+		D265A3D41BCE734B00A0469B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D265A3D91BCE734B00A0469B /* Live Photo ConverterUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Live Photo ConverterUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D265A3DD1BCE734B00A0469B /* Live_Photo_ConverterUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Live_Photo_ConverterUITests.m; sourceTree = "<group>"; };
+		D265A3DF1BCE734B00A0469B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D265A3AF1BCE734B00A0469B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D265A3CB1BCE734B00A0469B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D265A3D61BCE734B00A0469B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D265A3A91BCE734B00A0469B = {
+			isa = PBXGroup;
+			children = (
+				D265A3B41BCE734B00A0469B /* Live Photo Converter */,
+				D265A3D11BCE734B00A0469B /* Live Photo ConverterTests */,
+				D265A3DC1BCE734B00A0469B /* Live Photo ConverterUITests */,
+				D265A3B31BCE734B00A0469B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D265A3B31BCE734B00A0469B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D265A3B21BCE734B00A0469B /* Live Photo Converter.app */,
+				D265A3CE1BCE734B00A0469B /* Live Photo ConverterTests.xctest */,
+				D265A3D91BCE734B00A0469B /* Live Photo ConverterUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D265A3B41BCE734B00A0469B /* Live Photo Converter */ = {
+			isa = PBXGroup;
+			children = (
+				D265A3B81BCE734B00A0469B /* AppDelegate.h */,
+				D265A3B91BCE734B00A0469B /* AppDelegate.m */,
+				D265A3BB1BCE734B00A0469B /* ViewController.h */,
+				D265A3BC1BCE734B00A0469B /* ViewController.m */,
+				D265A3BE1BCE734B00A0469B /* Main.storyboard */,
+				D265A3C41BCE734B00A0469B /* Assets.xcassets */,
+				D265A3C61BCE734B00A0469B /* LaunchScreen.storyboard */,
+				D265A3C91BCE734B00A0469B /* Info.plist */,
+				D265A3C11BCE734B00A0469B /* Live_Photo_Converter.xcdatamodeld */,
+				D265A3B51BCE734B00A0469B /* Supporting Files */,
+			);
+			path = "Live Photo Converter";
+			sourceTree = "<group>";
+		};
+		D265A3B51BCE734B00A0469B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D265A3B61BCE734B00A0469B /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D265A3D11BCE734B00A0469B /* Live Photo ConverterTests */ = {
+			isa = PBXGroup;
+			children = (
+				D265A3D21BCE734B00A0469B /* Live_Photo_ConverterTests.m */,
+				D265A3D41BCE734B00A0469B /* Info.plist */,
+			);
+			path = "Live Photo ConverterTests";
+			sourceTree = "<group>";
+		};
+		D265A3DC1BCE734B00A0469B /* Live Photo ConverterUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D265A3DD1BCE734B00A0469B /* Live_Photo_ConverterUITests.m */,
+				D265A3DF1BCE734B00A0469B /* Info.plist */,
+			);
+			path = "Live Photo ConverterUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D265A3B11BCE734B00A0469B /* Live Photo Converter */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D265A3E21BCE734B00A0469B /* Build configuration list for PBXNativeTarget "Live Photo Converter" */;
+			buildPhases = (
+				D265A3AE1BCE734B00A0469B /* Sources */,
+				D265A3AF1BCE734B00A0469B /* Frameworks */,
+				D265A3B01BCE734B00A0469B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Live Photo Converter";
+			productName = "Live Photo Converter";
+			productReference = D265A3B21BCE734B00A0469B /* Live Photo Converter.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D265A3CD1BCE734B00A0469B /* Live Photo ConverterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D265A3E51BCE734B00A0469B /* Build configuration list for PBXNativeTarget "Live Photo ConverterTests" */;
+			buildPhases = (
+				D265A3CA1BCE734B00A0469B /* Sources */,
+				D265A3CB1BCE734B00A0469B /* Frameworks */,
+				D265A3CC1BCE734B00A0469B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D265A3D01BCE734B00A0469B /* PBXTargetDependency */,
+			);
+			name = "Live Photo ConverterTests";
+			productName = "Live Photo ConverterTests";
+			productReference = D265A3CE1BCE734B00A0469B /* Live Photo ConverterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D265A3D81BCE734B00A0469B /* Live Photo ConverterUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D265A3E81BCE734B00A0469B /* Build configuration list for PBXNativeTarget "Live Photo ConverterUITests" */;
+			buildPhases = (
+				D265A3D51BCE734B00A0469B /* Sources */,
+				D265A3D61BCE734B00A0469B /* Frameworks */,
+				D265A3D71BCE734B00A0469B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D265A3DB1BCE734B00A0469B /* PBXTargetDependency */,
+			);
+			name = "Live Photo ConverterUITests";
+			productName = "Live Photo ConverterUITests";
+			productReference = D265A3D91BCE734B00A0469B /* Live Photo ConverterUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D265A3AA1BCE734B00A0469B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Pinkstone Pictures LLC";
+				TargetAttributes = {
+					D265A3B11BCE734B00A0469B = {
+						CreatedOnToolsVersion = 7.1;
+					};
+					D265A3CD1BCE734B00A0469B = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = D265A3B11BCE734B00A0469B;
+					};
+					D265A3D81BCE734B00A0469B = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = D265A3B11BCE734B00A0469B;
+					};
+				};
+			};
+			buildConfigurationList = D265A3AD1BCE734B00A0469B /* Build configuration list for PBXProject "Live Photo Converter" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D265A3A91BCE734B00A0469B;
+			productRefGroup = D265A3B31BCE734B00A0469B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D265A3B11BCE734B00A0469B /* Live Photo Converter */,
+				D265A3CD1BCE734B00A0469B /* Live Photo ConverterTests */,
+				D265A3D81BCE734B00A0469B /* Live Photo ConverterUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D265A3B01BCE734B00A0469B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D265A3C81BCE734B00A0469B /* LaunchScreen.storyboard in Resources */,
+				D265A3C51BCE734B00A0469B /* Assets.xcassets in Resources */,
+				D265A3C01BCE734B00A0469B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D265A3CC1BCE734B00A0469B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D265A3D71BCE734B00A0469B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D265A3AE1BCE734B00A0469B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D265A3BD1BCE734B00A0469B /* ViewController.m in Sources */,
+				D265A3BA1BCE734B00A0469B /* AppDelegate.m in Sources */,
+				D265A3B71BCE734B00A0469B /* main.m in Sources */,
+				D265A3C31BCE734B00A0469B /* Live_Photo_Converter.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D265A3CA1BCE734B00A0469B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D265A3D31BCE734B00A0469B /* Live_Photo_ConverterTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D265A3D51BCE734B00A0469B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D265A3DE1BCE734B00A0469B /* Live_Photo_ConverterUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D265A3D01BCE734B00A0469B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D265A3B11BCE734B00A0469B /* Live Photo Converter */;
+			targetProxy = D265A3CF1BCE734B00A0469B /* PBXContainerItemProxy */;
+		};
+		D265A3DB1BCE734B00A0469B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D265A3B11BCE734B00A0469B /* Live Photo Converter */;
+			targetProxy = D265A3DA1BCE734B00A0469B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D265A3BE1BCE734B00A0469B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D265A3BF1BCE734B00A0469B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D265A3C61BCE734B00A0469B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D265A3C71BCE734B00A0469B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D265A3E01BCE734B00A0469B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D265A3E11BCE734B00A0469B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D265A3E31BCE734B00A0469B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Live Photo Converter/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.versluis.Live-Photo-Converter";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D265A3E41BCE734B00A0469B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Live Photo Converter/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.versluis.Live-Photo-Converter";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		D265A3E61BCE734B00A0469B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Live Photo ConverterTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.versluis.Live-Photo-ConverterTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Live Photo Converter.app/Live Photo Converter";
+			};
+			name = Debug;
+		};
+		D265A3E71BCE734B00A0469B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "Live Photo ConverterTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.versluis.Live-Photo-ConverterTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Live Photo Converter.app/Live Photo Converter";
+			};
+			name = Release;
+		};
+		D265A3E91BCE734B00A0469B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Live Photo ConverterUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.versluis.Live-Photo-ConverterUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Live Photo Converter";
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		D265A3EA1BCE734B00A0469B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "Live Photo ConverterUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.versluis.Live-Photo-ConverterUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "Live Photo Converter";
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D265A3AD1BCE734B00A0469B /* Build configuration list for PBXProject "Live Photo Converter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D265A3E01BCE734B00A0469B /* Debug */,
+				D265A3E11BCE734B00A0469B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D265A3E21BCE734B00A0469B /* Build configuration list for PBXNativeTarget "Live Photo Converter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D265A3E31BCE734B00A0469B /* Debug */,
+				D265A3E41BCE734B00A0469B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D265A3E51BCE734B00A0469B /* Build configuration list for PBXNativeTarget "Live Photo ConverterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D265A3E61BCE734B00A0469B /* Debug */,
+				D265A3E71BCE734B00A0469B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		D265A3E81BCE734B00A0469B /* Build configuration list for PBXNativeTarget "Live Photo ConverterUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D265A3E91BCE734B00A0469B /* Debug */,
+				D265A3EA1BCE734B00A0469B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D265A3C11BCE734B00A0469B /* Live_Photo_Converter.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D265A3C21BCE734B00A0469B /* Live_Photo_Converter.xcdatamodel */,
+			);
+			currentVersion = D265A3C21BCE734B00A0469B /* Live_Photo_Converter.xcdatamodel */;
+			path = Live_Photo_Converter.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D265A3AA1BCE734B00A0469B /* Project object */;
+}
