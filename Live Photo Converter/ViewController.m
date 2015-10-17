@@ -224,6 +224,23 @@
     [self.workingIndicator stopAnimating];
 }
 
-#pragma mark - Live Photo VIew Delegate
+# pragma mark - Live Photo View Delegate
+
+# pragma mark - Rotation
+
+- (void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator {
+    
+    [coordinator animateAlongsideTransition:^(id<UIViewControllerTransitionCoordinatorContext>  _Nonnull context) {
+        
+        // rotate Live Photo VIew during rotation
+        if (![self.view viewWithTag:87]) {
+            return;
+        }
+        PHLivePhotoView *photoView = [self.view viewWithTag:87];
+        photoView.bounds = self.view.bounds;
+        photoView.center = self.view.center;
+        
+    } completion:nil];
+}
 
 @end

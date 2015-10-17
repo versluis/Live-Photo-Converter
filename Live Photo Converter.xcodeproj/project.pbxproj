@@ -502,6 +502,7 @@
 				D265A3E41BCE734B00A0469B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D265A3E51BCE734B00A0469B /* Build configuration list for PBXNativeTarget "Live Photo ConverterTests" */ = {
 			isa = XCConfigurationList;
@@ -510,6 +511,7 @@
 				D265A3E71BCE734B00A0469B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		D265A3E81BCE734B00A0469B /* Build configuration list for PBXNativeTarget "Live Photo ConverterUITests" */ = {
 			isa = XCConfigurationList;
@@ -518,6 +520,7 @@
 				D265A3EA1BCE734B00A0469B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
