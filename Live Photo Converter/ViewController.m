@@ -15,6 +15,7 @@
 @interface ViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, PHLivePhotoViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *workingIndicator;
+@property (strong, nonatomic) PHLivePhoto *livePhoto;
 
 @end
 
@@ -59,11 +60,52 @@
     PHLivePhoto *livePhoto = photoView.livePhoto;
     
     // build an activity view controller
+    // CAVEAT: even though the option appears, this does not save a PHLive Photo
+    // the activity controller saves a UIImage instead
+    
     UIActivityViewController *activityView = [[UIActivityViewController alloc]initWithActivityItems:@[livePhoto] applicationActivities:nil];
     [self presentViewController:activityView animated:YES completion:^{
         // let's see if we need to do anything here
         NSLog(@"Activity View Controller has finidhed.");
     }];
+    
+    // access the completion handler
+    activityView.completionWithItemsHandler = ^(NSString *activityType,
+                                              BOOL completed,
+                                              NSArray *returnedItems,
+                                              NSError *error){
+        // react to the completion
+        if (completed) {
+            
+            // user shared an item
+            NSLog(@"We used activity type%@", activityType);
+            
+        } else {
+            
+            // user cancelled
+            NSLog(@"We didn't want to share anything after all.");
+        }
+        
+        // any errors?
+        NSLog(@"An Error occured: %@, %@", error.localizedDescription, error.localizedFailureReason);
+        
+        // explain that this didn't work
+        [self explainCaveat];
+    };
+}
+
+- (void)explainCaveat {
+    
+    // create an alert view
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"CAVEAT" message:@"Even though the Activity Controller accepts a Live Photo, home-made ones can currently not be saved. You'll find a UIImage in your camera roll instead." preferredStyle:UIAlertControllerStyleAlert];
+    
+    // add a single action
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"Sad Face" style:UIAlertActionStyleDefault handler:nil];
+    [alert addAction:action];
+    
+    // and display it
+    [self presentViewController:alert animated:YES completion:nil];
+    
 }
 
 - (void)cannotShareLivePhotoWarning {
@@ -103,6 +145,18 @@
         [invocation invoke];
     }
     
+//    // save it to the camera roll
+//    [self saveLivePhotoAssetWithVideoURL:videoURL imageURL:photoURL];
+    
+//    NSArray *resources = @[videoURL, photoURL];
+//    
+//    [PHLivePhoto requestLivePhotoWithResourceFileURLs:resources placeholderImage:nil targetSize:CGSizeZero contentMode:PHImageContentModeAspectFit resultHandler:^(PHLivePhoto * _Nullable livePhoto, NSDictionary * _Nonnull info) {
+//        
+//        // completion handler
+//        NSLog(@"Completion handler has been called.");
+//        self.livePhoto = livePhoto;
+//    }];
+    
     return livePhoto;
 }
 
@@ -134,6 +188,35 @@
     : nil;
     
     return thumbnailImage;
+}
+
+- (void)saveLivePhotoAssetWithVideoURL:(NSURL *)videoURL imageURL:(NSURL *)imageURL {
+    
+    // save image as library asset
+    // courtesy of aasatt:
+    // https://github.com/genadyo/LivePhotoDemo/issues/3#issuecomment-149006903
+    
+    PHPhotoLibrary *library = [PHPhotoLibrary sharedPhotoLibrary];
+    
+    [library performChanges:^{
+        
+        // create the change request
+        PHAssetCreationRequest *request = [PHAssetCreationRequest creationRequestForAsset];
+        [request addResourceWithType:PHAssetResourceTypePairedVideo fileURL:videoURL options:nil];
+        [request addResourceWithType:PHAssetResourceTypePhoto fileURL:imageURL options:nil];
+        
+    } completionHandler:^(BOOL success, NSError * _Nullable error) {
+        
+        // did this work?
+        if (!success) {
+            NSLog(@"That didn't work...");
+            NSLog(@"Error was %@, %@", error.localizedFailureReason, error.localizedDescription);
+            return;
+        }
+        
+        NSLog(@"The asset was apparently saved without problems. Check your Photo Library!");
+        
+    }];
 }
 
 - (void)noVideoWarning {
