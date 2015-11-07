@@ -10,7 +10,6 @@
 @import Photos;
 @import PhotosUI;
 @import MobileCoreServices;
-@import MediaPlayer;
 
 @interface ViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate, PHLivePhotoViewDelegate>
 
@@ -94,6 +93,8 @@
     };
 }
 
+# pragma mark - Warning Dialogues
+
 - (void)explainCaveat {
     
     // create an alert view
@@ -120,6 +121,21 @@
     // and display it
     [self presentViewController:alert animated:YES completion:nil];
 }
+
+- (void)noVideoWarning {
+    
+    // create an alert view
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Not a Video" message:@"Sadly this is not a video file, so we can't show or convert it. Try another one." preferredStyle:UIAlertControllerStyleAlert];
+    
+    // add a single action
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"Thanks, Phone!" style:UIAlertActionStyleDefault handler:nil];
+    [alert addAction:action];
+    
+    // and display it
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+# pragma mark - Live Photo Methods
 
 - (PHLivePhoto *)convertLivePhotoFromVideoURL:(NSURL *)videoURL photoURL:(NSURL *)photoURL {
     
@@ -183,11 +199,24 @@
     if (!thumbnailImageRef)
         NSLog(@"thumbnailImageGenerationError %@", igError );
     
-    UIImage *thumbnailImage = thumbnailImageRef
+    UIImage *image = thumbnailImageRef
     ? [[UIImage alloc] initWithCGImage:thumbnailImageRef]
     : nil;
     
-    return thumbnailImage;
+    return image;
+}
+
+- (UIImage *)firstFrame:(NSURL *)videoURL {
+
+    // courtesy of null0pointer and Javi Campaña
+    // http://stackoverflow.com/questions/10221242/first-frame-of-a-video-using-avfoundation
+    
+     AVURLAsset* asset = [AVURLAsset URLAssetWithURL:videoURL options:nil];
+     AVAssetImageGenerator* generator = [AVAssetImageGenerator assetImageGeneratorWithAsset:asset];
+     generator.appliesPreferredTrackTransform = YES;
+     UIImage* image = [UIImage imageWithCGImage:[generator copyCGImageAtTime:CMTimeMake(0, 1) actualTime:nil error:nil]];
+    
+    return image;
 }
 
 - (void)saveLivePhotoAssetWithVideoURL:(NSURL *)videoURL imageURL:(NSURL *)imageURL {
@@ -217,19 +246,6 @@
         NSLog(@"The asset was apparently saved without problems. Check your Photo Library!");
         
     }];
-}
-
-- (void)noVideoWarning {
-    
-    // create an alert view
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Not a Video" message:@"Sadly this is not a video file, so we can't show or convert it. Try another one." preferredStyle:UIAlertControllerStyleAlert];
-    
-    // add a single action
-    UIAlertAction *action = [UIAlertAction actionWithTitle:@"Thanks, Phone!" style:UIAlertActionStyleDefault handler:nil];
-    [alert addAction:action];
-    
-    // and display it
-    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (NSURL*)grabFileURL:(NSString *)fileName {
@@ -266,11 +282,9 @@
     NSURL *videoURL = [info objectForKey:UIImagePickerControllerMediaURL];
     
     // grab a still image from the video (we'll use the first frame)
-    AVURLAsset *asset = [[AVURLAsset alloc]initWithURL:videoURL options:nil];
-    AVAssetImageGenerator *generator = [AVAssetImageGenerator assetImageGeneratorWithAsset:asset];
-    UIImage *image = [UIImage imageWithCGImage:[generator copyCGImageAtTime:CMTimeMake(0, 1) actualTime:nil error:nil]];
+    UIImage *image = [self firstFrame:videoURL];
     
-    // or use
+    // or use a more complex method:
     // UIImage *image = [self thumbnailForVideoURL:videoURL atTime:0];
     
     // turn UIImage into an NSURL (not needed)
@@ -284,15 +298,6 @@
     // now grab the Live Photo (takes some time, bring up spinning wheel)
     [self.workingIndicator startAnimating];
     PHLivePhoto *livePhoto = [self convertLivePhotoFromVideoURL:videoURL photoURL:photoURL];
-    
-    
-//    // create an image view
-//    UIImageView *imageView = [[UIImageView alloc]initWithFrame:self.view.bounds];
-//    imageView.image = image;
-//    imageView.contentMode = UIViewContentModeScaleAspectFit;
-//    imageView.tag = 87;
-//    [self.view addSubview:imageView];
-    
     
     // create a Live Photo View
     PHLivePhotoView *photoView = [[PHLivePhotoView alloc]initWithFrame:self.view.bounds];
